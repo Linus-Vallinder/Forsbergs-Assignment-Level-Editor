@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Tile
+namespace Tiles
 {
-    [System.Serializable]
-    public class TileType
+    [CreateAssetMenu(fileName = "Type", menuName = "New TileType")]
+    public class TileType : ScriptableObject
     {
         [Header("Tile Information")]
         public string Name;
