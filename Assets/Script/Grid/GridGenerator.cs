@@ -41,7 +41,11 @@ namespace Grid
 
         public void CreateTile(Vector2 tilePosition, TileType tileType)
         {
-            Instantiate(DefualtTilePrefab, new Vector3(tilePosition.x, tilePosition.y, 0), Quaternion.identity);
+            var tilePrefab = DefualtTilePrefab;
+
+            tilePrefab.GetComponent<Tile>().Data = new TileData(tilePosition, tileType);
+
+            Instantiate(tilePrefab, new Vector3(tilePosition.x, tilePosition.y, 0), Quaternion.identity);
         }
     }
 }

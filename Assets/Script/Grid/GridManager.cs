@@ -1,4 +1,6 @@
 using UnityEngine;
+using Tiles;
+using Tiles.UI;
 
 namespace Grid
 {
@@ -7,6 +9,8 @@ namespace Grid
         public static GridManager Instance;
 
         public GridGenerator GridGenerator => GetComponent<GridGenerator>();
+
+        public TileTypeSelector TypeSelector => GetComponent<TileTypeSelector>();
 
         private void Awake()
         {

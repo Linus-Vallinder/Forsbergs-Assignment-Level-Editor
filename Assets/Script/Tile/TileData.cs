@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Tiles
 {
+    [System.Serializable]
     public class TileData
     {
         public Vector2 TilePosition;

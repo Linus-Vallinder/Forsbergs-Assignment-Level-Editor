@@ -6,9 +6,16 @@ namespace Tiles
     {
         public TileData Data;
 
+        public SpriteRenderer Renderer => GetComponent<SpriteRenderer>();
+
         public Tile(TileData tileData)
         {
             Data = tileData;
+        }
+
+        private void OnValidate()
+        {
+            Renderer.color = Data.tileType.Color;
         }
     }
 }
