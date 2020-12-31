@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Tiles.UI
 {
@@ -16,6 +17,8 @@ namespace Tiles.UI
         public Image TilePreview;
 
         public GameObject SelectedOverlay;
+
+        public UnityEvent<TileType, bool> OnSelected;
 
         private void Update()
         {
@@ -47,10 +50,12 @@ namespace Tiles.UI
             if (IsSelected)
             {
                 IsSelected = false;
+                OnSelected.Invoke(Type, false);
             }
             else if (!IsSelected)
             {
                 IsSelected = true;
+                OnSelected.Invoke(Type, true);
             }
         }
     }

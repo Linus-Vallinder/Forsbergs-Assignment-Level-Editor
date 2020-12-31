@@ -1,6 +1,6 @@
-using UnityEngine;
 using Tiles;
 using Tiles.UI;
+using UnityEngine;
 
 namespace Grid
 {
@@ -10,7 +10,7 @@ namespace Grid
 
         public GridGenerator GridGenerator => GetComponent<GridGenerator>();
 
-        public TileTypeSelector TypeSelector => GetComponent<TileTypeSelector>();
+        public TileTypeSelector TypeSelector => FindObjectOfType<TileTypeSelector>();
 
         private void Awake()
         {
@@ -24,6 +24,35 @@ namespace Grid
             }
 
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButton(0))
+            {
+                ChangeTile();
+            }
+        }
+
+        private void ChangeTile()
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.GetComponent<Tile>())
+                {
+                    if (hit.collider.GetComponent<Tile>().Data.tileType != TypeSelector.SelectedType)
+                    {
+                        hit.collider.GetComponent<Tile>().Data.tileType = TypeSelector.SelectedType;
+                        hit.collider.GetComponent<Tile>().SetUp();
+                    }
+                    else if (hit.collider.GetComponent<Tile>().Data.tileType = TypeSelector.SelectedType)
+                    {
+                        Debug.Log("Tile is of same type");
+                    }
+                }
+            }
         }
     }
 }

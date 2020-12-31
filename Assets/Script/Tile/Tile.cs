@@ -17,5 +17,10 @@ namespace Tiles
         {
             Renderer.color = Data.tileType.Color;
         }
+
+        public void SetUp()
+        {
+            Renderer.color = Data.tileType.Color;
+        }
     }
 }
