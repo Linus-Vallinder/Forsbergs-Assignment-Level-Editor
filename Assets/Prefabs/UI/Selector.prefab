@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 548578332262896504}
-  - component: {fileID: 548578332262896505}
   - component: {fileID: 343081620162127994}
+  - component: {fileID: 548578332262896505}
   m_Layer: 5
   m_Name: Selector
   m_TagString: Untagged
@@ -37,6 +37,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 1000}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &343081620162127994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548578332262896511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e6153f01068704080970cd94a83090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SelectedType: {fileID: 0}
+  UIElementPrefab: {fileID: 2273480352589348651, guid: f56b66df9fe83b24f95a864f12ae7290, type: 3}
 --- !u!114 &548578332262896505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,7 +69,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: -580
+  m_Spacing: 225
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -63,15 +77,3 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &343081620162127994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548578332262896511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e6153f01068704080970cd94a83090, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -1,10 +1,15 @@
 using Tiles;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace Grid
 {
     public class GridGenerator : MonoBehaviour
     {
+        [Header("Grid")]
+        public List<Tile> GridTiles = new List<Tile>();
+
         [Header("Grid Generation Settings")]
         public TileType DefualtTileType;
 
@@ -34,16 +39,30 @@ namespace Grid
                 for (int y = 0; y < GridY; y++)
                 {
                     Vector2 tilePosition = new Vector2(x * GridSpacing, y * GridSpacing) + (GridOrigin + new Vector2(-GridX * 0.45f, -GridY * 0.45f));
-                    CreateTile(tilePosition, DefualtTileType);
+                    CreateTile(tilePosition, DefualtTileType.TileID);
                 }
             }
         }
 
-        public void CreateTile(Vector2 tilePosition, TileType tileType)
+        public List<TileData> GetGridData()
+        {
+            List<TileData> data = new List<TileData>();
+
+            foreach (var tile in GridTiles)
+            {
+                data.Add(tile.Data);
+            }
+
+            return data;
+        }
+
+        public void CreateTile(Vector2 tilePosition, int tileTypeID)
         {
             var tilePrefab = DefualtTilePrefab;
 
-            tilePrefab.GetComponent<Tile>().Data = new TileData(tilePosition, tileType);
+            tilePrefab.GetComponent<Tile>().Data = new TileData(tilePosition, tileTypeID);
+
+            GridTiles.Add(tilePrefab.GetComponent<Tile>());
 
             Instantiate(tilePrefab, new Vector3(tilePosition.x, tilePosition.y, 0), Quaternion.identity);
         }

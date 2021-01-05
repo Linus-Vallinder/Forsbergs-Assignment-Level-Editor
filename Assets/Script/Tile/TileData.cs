@@ -7,9 +7,9 @@ namespace Tiles
     {
         public Vector2 TilePosition;
 
-        public TileType tileType;
+        public int tileType;
 
-        public TileData(Vector2 tilePosition, TileType tileType)
+        public TileData(Vector2 tilePosition, int tileType)
         {
             TilePosition = tilePosition;
             this.tileType = tileType;

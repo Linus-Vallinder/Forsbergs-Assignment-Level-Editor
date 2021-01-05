@@ -9,8 +9,9 @@ namespace Tiles
         public string Name;
 
         [Space]
-        public Color Color;
+        public int TileID;
 
-        public Sprite Sprite;
+        [Space]
+        public Color Color;
     }
 }

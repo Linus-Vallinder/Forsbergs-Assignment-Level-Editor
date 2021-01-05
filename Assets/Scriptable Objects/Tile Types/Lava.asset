@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37c894bcfca677144a6ad1cdd5d0c2d0, type: 3}
-  m_Name: Water
+  m_Name: Lava
   m_EditorClassIdentifier: 
-  Name: Water
-  TileID: 2
-  Color: {r: 0.4000089, g: 0.8626085, b: 0.9528302, a: 1}
-  Sprite: {fileID: 21300000, guid: fb9dec52f29aafe4880486e675836bb1, type: 3}
+  Name: Lava
+  TileID: 1
+  Color: {r: 1, g: 0.29116473, b: 0, a: 1}
+  Sprite: {fileID: 7482667652216324306, guid: c787c4be53e24f44cb391ca397b597bb, type: 3}

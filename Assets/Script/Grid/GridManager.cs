@@ -1,6 +1,11 @@
 using Tiles;
 using Tiles.UI;
 using UnityEngine;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace Grid
 {
@@ -11,6 +16,8 @@ namespace Grid
         public GridGenerator GridGenerator => GetComponent<GridGenerator>();
 
         public TileTypeSelector TypeSelector => FindObjectOfType<TileTypeSelector>();
+
+        public TileType[] TileTypes;
 
         private void Awake()
         {
@@ -28,7 +35,7 @@ namespace Grid
 
         private void Update()
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && TypeSelector.SelectedType != null)
             {
                 ChangeTile();
             }
@@ -40,19 +47,20 @@ namespace Grid
 
             if (hit.collider != null)
             {
-                if (hit.collider.GetComponent<Tile>())
+                if (hit.collider.GetComponent<Tile>() && hit.collider.GetComponent<Tile>().Data.tileType != TypeSelector.SelectedType.TileID)
                 {
-                    if (hit.collider.GetComponent<Tile>().Data.tileType != TypeSelector.SelectedType)
-                    {
-                        hit.collider.GetComponent<Tile>().Data.tileType = TypeSelector.SelectedType;
-                        hit.collider.GetComponent<Tile>().SetUp();
-                    }
-                    else if (hit.collider.GetComponent<Tile>().Data.tileType = TypeSelector.SelectedType)
-                    {
-                        Debug.Log("Tile is of same type");
-                    }
+                    hit.collider.GetComponent<Tile>().Data.tileType = TypeSelector.SelectedType.TileID;
+                    hit.collider.GetComponent<Tile>().SetUp();
                 }
             }
         }
+    }
+
+    [Serializable]
+    class SaveData
+    {
+        public float GridX, GridY;
+
+        public List<TileData> GridTiles = new List<TileData>();
     }
 }

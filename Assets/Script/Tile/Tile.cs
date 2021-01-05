@@ -1,4 +1,5 @@
 using UnityEngine;
+using Grid;
 
 namespace Tiles
 {
@@ -13,14 +14,9 @@ namespace Tiles
             Data = tileData;
         }
 
-        private void OnValidate()
-        {
-            Renderer.color = Data.tileType.Color;
-        }
-
         public void SetUp()
         {
-            Renderer.color = Data.tileType.Color;
+            Renderer.color = GridManager.Instance.TileTypes[Data.tileType].Color;
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Grid;
 
 namespace Tiles.UI
 {
@@ -6,10 +7,15 @@ namespace Tiles.UI
     {
         public TileType SelectedType;
 
-        public TileTypeUI[] TileTypeUIs;
+        [Space]
+        public GameObject UIElementPrefab;
+
+        private TileTypeUI[] TileTypeUIs;
 
         private void Start()
         {
+            CreateSelctorUI();
+
             TileTypeUIs = FindObjectsOfType<TileTypeUI>();
             ListnerSetup();
         }
@@ -24,7 +30,6 @@ namespace Tiles.UI
 
         private void ChangeSelected(TileType tileType, bool ChangeToTrue)
         {
-
             //TODO: Refactor this code
             if (ChangeToTrue)
             {
@@ -41,6 +46,16 @@ namespace Tiles.UI
             else if (!ChangeToTrue)
             {
                 SelectedType = null;
+            }
+        }
+
+        private void CreateSelctorUI()
+        {
+            foreach (var types in GridManager.Instance.TileTypes)
+            {
+                var clone = Instantiate(UIElementPrefab, this.gameObject.transform);
+
+                clone.GetComponent<TileTypeUI>().Type = types;
             }
         }
     }

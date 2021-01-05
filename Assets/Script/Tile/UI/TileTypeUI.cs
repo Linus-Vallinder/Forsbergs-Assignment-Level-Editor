@@ -32,7 +32,7 @@ namespace Tiles.UI
             }
         }
 
-        private void OnValidate()
+        private void Start()
         {
             Setup();
         }
@@ -41,7 +41,6 @@ namespace Tiles.UI
         {
             Name.text = $"{Type.Name}";
 
-            TilePreview.sprite = Type.Sprite;
             TilePreview.color = Type.Color;
         }
 

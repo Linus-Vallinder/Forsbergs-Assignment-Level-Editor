@@ -44,6 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae8f0b8bee1eb8418d3fa146645fa88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TileTypes:
+  - {fileID: 11400000, guid: 57662013ae836a847aeee2e84e8aa0b3, type: 2}
+  - {fileID: 11400000, guid: 88402e02d3aa9a44e9073eec20c9d716, type: 2}
+  - {fileID: 11400000, guid: 77ed5e4651e2ae54fa87305c7ee40272, type: 2}
+  - {fileID: 11400000, guid: eee91c1f83fd7254e95fb7d07587f612, type: 2}
+  - {fileID: 11400000, guid: 65ce3e57b7511a94f9426c840463e441, type: 2}
 --- !u!114 &7421130052336871681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,9 +62,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51b77ed6fd0fa34ca1a36a77e20846a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GridTiles: []
   DefualtTileType: {fileID: 11400000, guid: 57662013ae836a847aeee2e84e8aa0b3, type: 2}
   DefualtTilePrefab: {fileID: 7208783955288023187, guid: f54814e361b0598479c1c573762a59d8, type: 3}
-  GridOrigin: {x: -3.8925, y: 0}
-  GridSpacing: 1
+  GridOrigin: {x: 0, y: 0}
+  GridSpacing: 1.25
   GridX: 10
   GridY: 10
