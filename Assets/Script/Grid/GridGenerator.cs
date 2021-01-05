@@ -14,7 +14,7 @@ namespace Grid
         public TileType DefualtTileType;
 
         [Space]
-        public GameObject DefualtTilePrefab;
+        public GameObject tileObject;
 
         [Space]
         public Vector2 GridOrigin = Vector2.zero;
@@ -44,6 +44,17 @@ namespace Grid
             }
         }
 
+        public void CreateTile(Vector2 tilePosition, int tileTypeID)
+        {
+            var clone = Instantiate(tileObject, new Vector3(tilePosition.x, tilePosition.y, 0), Quaternion.identity);
+
+            clone.AddComponent<Tile>();
+
+            clone.GetComponent<Tile>().Data = new TileData(tilePosition, tileTypeID);
+
+            GridTiles.Add(clone.GetComponent<Tile>());
+        }
+
         public List<TileData> GetGridData()
         {
             List<TileData> data = new List<TileData>();
@@ -56,15 +67,20 @@ namespace Grid
             return data;
         }
 
-        public void CreateTile(Vector2 tilePosition, int tileTypeID)
+        public void Reset()
         {
-            var tilePrefab = DefualtTilePrefab;
+            DestoryGrid();
+            GenerateGrid();
+        }
 
-            tilePrefab.GetComponent<Tile>().Data = new TileData(tilePosition, tileTypeID);
+        public void DestoryGrid()
+        {
+            foreach (var tile in GridTiles)
+            {
+                Destroy(tile.gameObject);
+            }
 
-            GridTiles.Add(tilePrefab.GetComponent<Tile>());
-
-            Instantiate(tilePrefab, new Vector3(tilePosition.x, tilePosition.y, 0), Quaternion.identity);
+            GridTiles.Clear();
         }
     }
 }

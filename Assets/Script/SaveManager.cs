@@ -27,6 +27,11 @@ public class SaveManager : MonoBehaviour
 
         bf.Serialize(file, data);
         file.Close();
-        Debug.Log("Game data saved!");
+        Debug.Log($"You have save {SaveNameInput.text} as a map");
+    }
+
+    public void LoadGrid()
+    {
+
     }
 }

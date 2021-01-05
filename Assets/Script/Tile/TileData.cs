@@ -5,13 +5,14 @@ namespace Tiles
     [System.Serializable]
     public class TileData
     {
-        public Vector2 TilePosition;
+        public float PositionX, PositionY;
 
         public int tileType;
 
         public TileData(Vector2 tilePosition, int tileType)
         {
-            TilePosition = tilePosition;
+            PositionX = tilePosition.x;
+            PositionY = tilePosition.y;
             this.tileType = tileType;
         }
     }
