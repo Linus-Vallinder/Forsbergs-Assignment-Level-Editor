@@ -59,8 +59,6 @@ namespace Grid
     [Serializable]
     class SaveData
     {
-        public float GridX, GridY;
-
         public List<TileData> GridTiles = new List<TileData>();
     }
 }

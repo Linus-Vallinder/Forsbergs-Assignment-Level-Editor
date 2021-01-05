@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GridTiles: []
   DefualtTileType: {fileID: 11400000, guid: 57662013ae836a847aeee2e84e8aa0b3, type: 2}
-  DefualtTilePrefab: {fileID: 7208783955288023187, guid: f54814e361b0598479c1c573762a59d8, type: 3}
+  tileObject: {fileID: 5829232009886459333, guid: f54814e361b0598479c1c573762a59d8, type: 3}
   GridOrigin: {x: 0, y: 0}
   GridSpacing: 1.25
   GridX: 10

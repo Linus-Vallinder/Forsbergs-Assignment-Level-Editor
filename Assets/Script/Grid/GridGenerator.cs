@@ -44,6 +44,16 @@ namespace Grid
             }
         }
 
+        public void LoadSavedGrid(List<TileData> gridData)
+        {
+            DestoryGrid();
+
+            foreach (var tile in gridData)
+            {
+                CreateTile(new Vector2(tile.PositionX, tile.PositionY), tile.tileType);
+            }
+        }
+
         public void CreateTile(Vector2 tilePosition, int tileTypeID)
         {
             var clone = Instantiate(tileObject, new Vector3(tilePosition.x, tilePosition.y, 0), Quaternion.identity);
