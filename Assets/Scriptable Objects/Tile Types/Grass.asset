@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Grass
   m_EditorClassIdentifier: 
   Name: Grass
-  Color: {r: 0.48235297, g: 0.79215693, b: 0.36862746, a: 1}
-  Sprite: {fileID: 7482667652216324306, guid: c787c4be53e24f44cb391ca397b597bb, type: 3}
+  TileID: 0
+  Color: {r: 0.5111818, g: 0.83706063, b: 0.33342966, a: 1}

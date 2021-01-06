@@ -23,5 +23,10 @@ namespace Tiles
         {
             Renderer.color = GridManager.Instance.TileTypes[Data.tileType].Color;
         }
+
+        public void ReloadColor()
+        {
+            Renderer.color = GridManager.Instance.TileTypes[Data.tileType].Color;
+        }
     }
 }

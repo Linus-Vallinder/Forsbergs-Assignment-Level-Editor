@@ -18,6 +18,7 @@ namespace Tiles.UI
 
         public GameObject SelectedOverlay;
 
+        [HideInInspector]
         public UnityEvent<TileType, bool> OnSelected;
 
         private void Update()

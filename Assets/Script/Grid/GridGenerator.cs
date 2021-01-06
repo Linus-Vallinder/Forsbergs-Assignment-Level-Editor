@@ -83,6 +83,14 @@ namespace Grid
             GenerateGrid();
         }
 
+        public void ReloadGridColor()
+        {
+            foreach (var tile in GridTiles)
+            {
+                tile.ReloadColor();
+            }
+        }
+
         public void DestoryGrid()
         {
             foreach (var tile in GridTiles)

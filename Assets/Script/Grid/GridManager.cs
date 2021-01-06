@@ -51,6 +51,7 @@ namespace Grid
                 {
                     hit.collider.GetComponent<Tile>().Data.tileType = TypeSelector.SelectedType.TileID;
                     hit.collider.GetComponent<Tile>().SetUp();
+                    Debug.Log(TypeSelector.SelectedType);
                 }
             }
         }
