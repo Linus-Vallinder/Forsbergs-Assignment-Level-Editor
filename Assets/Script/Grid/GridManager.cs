@@ -17,7 +17,7 @@ namespace Grid
 
         public TileTypeSelector TypeSelector => FindObjectOfType<TileTypeSelector>();
 
-        public TileType[] TileTypes;
+        public List<TileType> TileTypes;
 
         private void Awake()
         {

@@ -69,6 +69,26 @@ namespace Tiles.UI
             }
         }
 
+        public void CreateNewTypeUI()
+        {
+            var type = ScriptableObject.CreateInstance<TileType>();
+
+            type.Name = "New type";
+
+            type.TileID = GridManager.Instance.TileTypes.Count;
+
+            type.Color = new Color(0, 0, 0, 1);
+
+            GridManager.Instance.TileTypes.Add(type);
+
+            var clone = Instantiate(UIElementPrefab, this.gameObject.transform);
+
+            clone.GetComponent<TileTypeUI>().Type = type;
+            TileTypeUIs.Add(clone.GetComponent<TileTypeUI>());
+
+            ReloadTypeUI();
+        }
+
         public void ReloadTypeUI()
         {
             foreach (var type in TileTypeUIs)

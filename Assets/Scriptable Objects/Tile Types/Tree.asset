@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37c894bcfca677144a6ad1cdd5d0c2d0, type: 3}
-  m_Name: obsidian
+  m_Name: Tree
   m_EditorClassIdentifier: 
   Name: obsidian
   TileID: 4
-  Color: {r: 0, g: 0, b: 0, a: 1}
+  Color: {r: 0.26662818, g: 0.1481267, b: 0.42421973, a: 1}
