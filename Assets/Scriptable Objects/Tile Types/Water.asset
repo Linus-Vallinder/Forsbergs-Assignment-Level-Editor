@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Water
   TileID: 2
-  Color: {r: 1, g: 0.47747892, b: 0.75009876, a: 1}
+  Color: {r: 0.28221625, g: 0.47747892, b: 0.82827324, a: 1}

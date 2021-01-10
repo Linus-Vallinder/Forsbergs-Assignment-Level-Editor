@@ -13,5 +13,12 @@ namespace Tiles
 
         [Space]
         public Color Color;
+
+        public TileType(string name, int id, Color color)
+        {
+            Name = name;
+            TileID = id;
+            Color = color;
+        }
     }
 }

@@ -1,7 +1,6 @@
+using System.Collections.Generic;
 using Tiles;
 using UnityEngine;
-using System.Collections.Generic;
-using System.Collections;
 
 namespace Grid
 {
@@ -87,7 +86,7 @@ namespace Grid
         {
             foreach (var tile in GridTiles)
             {
-                tile.ReloadColor();
+                tile.LoadColor();
             }
         }
 

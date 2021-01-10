@@ -1,32 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Grid;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
+    [Header("Save File Name Input")]
     public InputField SaveNameInput;
 
-    [Space]
+    [Header("Load File Name Input")]
     public InputField LoadNameInput;
 
     public void SaveGrid()
     {
-        BinaryFormatter bf = new BinaryFormatter();
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-        FileStream file = File.Create(Application.persistentDataPath
-                         + $"/{SaveNameInput.text}.map");
+        FileStream file = File.Create(Application.persistentDataPath + $"/{SaveNameInput.text}.map");
 
         SaveData data = new SaveData
         {
-            GridTiles = GridManager.Instance.GridGenerator.GetGridData()
+            GridTiles = GridManager.Instance.GridGenerator.GetGridData(),
+            Types = GridManager.Instance.GetTypesData()
         };
 
-        bf.Serialize(file, data);
+        binaryFormatter.Serialize(file, data);
         file.Close();
+
         Debug.Log($"You have save {SaveNameInput.text} as a map");
     }
 
@@ -34,16 +34,21 @@ public class SaveManager : MonoBehaviour
     {
         if (File.Exists(Application.persistentDataPath + $"/{LoadNameInput.text}.map"))
         {
-            BinaryFormatter bf = new BinaryFormatter();
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+
             FileStream file = File.Open(Application.persistentDataPath + $"/{LoadNameInput.text}.map", FileMode.Open);
-            SaveData data = (SaveData)bf.Deserialize(file);
+
+            SaveData data = (SaveData)binaryFormatter.Deserialize(file);
             file.Close();
 
             GridManager.Instance.GridGenerator.LoadSavedGrid(data.GridTiles);
+            GridManager.Instance.LoadTypes(data.Types);
 
-            Debug.Log("Game data loaded!");
+            Debug.Log("Game Data loaded!");
         }
         else
+        {
             Debug.LogError("Map does not exist");
+        }
     }
 }

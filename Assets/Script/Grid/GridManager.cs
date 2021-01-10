@@ -1,11 +1,8 @@
+using System;
+using System.Collections.Generic;
 using Tiles;
 using Tiles.UI;
 using UnityEngine;
-using System;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using System.Collections.Generic;
-using System.Collections;
 
 namespace Grid
 {
@@ -50,16 +47,56 @@ namespace Grid
                 if (hit.collider.GetComponent<Tile>() && hit.collider.GetComponent<Tile>().Data.tileType != TypeSelector.SelectedType.TileID)
                 {
                     hit.collider.GetComponent<Tile>().Data.tileType = TypeSelector.SelectedType.TileID;
-                    hit.collider.GetComponent<Tile>().SetUp();
-                    Debug.Log(TypeSelector.SelectedType);
+                    hit.collider.GetComponent<Tile>().LoadColor();
                 }
             }
+        }
+
+        public List<Type> GetTypesData()
+        {
+            List<Type> types = new List<Type>();
+
+            foreach (var type in TileTypes)
+            {
+                types.Add(new Type(type.Name, type.Color));
+            }
+
+            return types;
+        }
+
+        public void LoadTypes(List<Type> types)
+        {
+            TileTypes.Clear();
+
+            for (int i = 0; i < types.Count; i++)
+            {
+                TileTypes.Add(new TileType(types[i].Name, i, new Color(types[i].r, types[i].g, types[i].b)));
+            }
+
+            TypeSelector.ReloadTypeUI();
         }
     }
 
     [Serializable]
-    class SaveData
+    public class SaveData
     {
         public List<TileData> GridTiles = new List<TileData>();
+        public List<Type> Types = new List<Type>();
+    }
+
+    [Serializable]
+    public class Type
+    {
+        public string Name;
+        public float r, g, b;
+
+        public Type(string name, Color color)
+        {
+            Name = name;
+
+            r = color.r;
+            g = color.g;
+            b = color.b;
+        }
     }
 }

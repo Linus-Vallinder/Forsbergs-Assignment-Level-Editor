@@ -7,24 +7,19 @@ namespace Tiles
     {
         public TileData Data;
 
-        public SpriteRenderer Renderer => GetComponent<SpriteRenderer>();
+        private SpriteRenderer Renderer => GetComponent<SpriteRenderer>();
 
         public Tile(TileData tileData)
         {
             Data = tileData;
         }
 
-        private void Start()
+        public void Start()
         {
-            SetUp();
+            LoadColor();
         }
 
-        public void SetUp()
-        {
-            Renderer.color = GridManager.Instance.TileTypes[Data.tileType].Color;
-        }
-
-        public void ReloadColor()
+        public void LoadColor()
         {
             Renderer.color = GridManager.Instance.TileTypes[Data.tileType].Color;
         }

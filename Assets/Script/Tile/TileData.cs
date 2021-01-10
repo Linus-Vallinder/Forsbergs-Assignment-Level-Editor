@@ -13,6 +13,7 @@ namespace Tiles
         {
             PositionX = tilePosition.x;
             PositionY = tilePosition.y;
+
             this.tileType = tileType;
         }
     }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c894bcfca677144a6ad1cdd5d0c2d0, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  Name: Sten
+  Name: Stone
   TileID: 3
-  Color: {r: 0.42421997, g: 0.4433962, b: 0.43711844, a: 1}
+  Color: {r: 0.48818088, g: 0.47893003, b: 0.48686582, a: 1}

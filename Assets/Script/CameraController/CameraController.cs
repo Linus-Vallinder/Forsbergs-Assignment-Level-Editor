@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace CameraController
@@ -12,14 +10,17 @@ namespace CameraController
         public float MovementSpeed;
 
         [Header("Zoom Settings")]
+        public float ZoomDefaultDistance = 10f;
+
+        [Space]
         public float ZoomDistanceMin;
 
         [Space]
-        public float ZoomSpeed = 5;
+        public float ZoomSpeed = 5f;
 
         private void Start()
         {
-            MainCamera.orthographicSize = ZoomDistanceMin;
+            MainCamera.orthographicSize = ZoomDefaultDistance;
         }
 
         private void Update()
